@@ -12,14 +12,16 @@ class Student(models.Model):
         User,
         on_delete=models.CASCADE,
         primary_key=True,
-        limit_choices_to={'is_student': True}
+        limit_choices_to={'is_student': True},
+        related_name='user'
     )
     parent = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        limit_choices_to={'is_student': False}
+        limit_choices_to={'is_student': False},
+        related_name='parent'
     )
     chats = models.ManyToManyField('Chat')
     blocked_list = models.ManyToManyField(User)
-    need = models.ManyToManyField('Topic')
-    offer = models.ManyToManyField('Topic')
+    need = models.ManyToManyField('Topic', related_name='needed_by')
+    offer = models.ManyToManyField('Topic', related_name='offered_by')
