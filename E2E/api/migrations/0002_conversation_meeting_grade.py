@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Conversation',
+            name='Chat',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('blocked_by', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='blocked', to=settings.AUTH_USER_MODEL)),
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField()),
                 ('bidirectional', models.BooleanField()),
-                ('conversation', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='api.conversation')),
+                ('chat', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='api.Chat')),
                 ('helper', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
             ],
         ),

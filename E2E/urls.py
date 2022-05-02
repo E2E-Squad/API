@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .api.views import UserViewSet, GroupViewSet, SubjectViewSet, TopicViewSet, ConversationViewSet, MeetingViewSet, GradeViewSet
+from .api.views import UserViewSet, GroupViewSet, SubjectViewSet, TopicViewSet, ChatViewSet, MeetingViewSet, GradeViewSet
 from rest_framework import routers, serializers, viewsets
 
 
@@ -24,7 +24,7 @@ router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'subjects', SubjectViewSet)
 router.register(r'topics', TopicViewSet)
-router.register(r'conversations', ConversationViewSet)
+router.register(r'chats', ChatViewSet)
 router.register(r'meetings', MeetingViewSet)
 router.register(r'grades', GradeViewSet)
 

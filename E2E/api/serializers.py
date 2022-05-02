@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import Subject, Topic, Conversation, Meeting, Grade
+from .models import Subject, Topic, Chat, Meeting, Grade
 from rest_framework import serializers
 
 
@@ -27,16 +27,16 @@ class TopicSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['name', 'subject']
 
 
-class ConversationSerializer(serializers.HyperlinkedModelSerializer):
+class ChatSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Conversation
+        model = Chat
         fields = ['user1', "user2", "blocked_by"]
 
 
 class MeetingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Meeting
-        fields = ['conversation', 'date', 'bidirectional', 'helper']
+        fields = ['chat', 'date', 'bidirectional', 'helper']
 
 
 class GradeSerializer(serializers.HyperlinkedModelSerializer):
